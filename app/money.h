@@ -3,6 +3,7 @@
 namespace vsite::oop::v7 
 {
 
-class money {};
+		friend std::ostream& operator<<(std::ostream& os, const money& m);
+		friend std::istream& operator>>(std::istream& is, money& m);
 
 }
