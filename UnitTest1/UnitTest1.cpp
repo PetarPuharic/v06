@@ -1,10 +1,14 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\app\money.h"
+#include "../app/money.h"
 
-using namespace vsite::oop::v7;
+// Neznam u cemu je problem, normal run radi bez ovoga
+// Ali build neradi bez ovoga
+#include "../app/money.cpp"
+
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
+using namespace vsite::oop::v7;
 
 // NoEuros, NoCents, Overflow, Underflow, +=, -=, ouput
 namespace UnitTest1

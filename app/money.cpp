@@ -1,5 +1,4 @@
 #include "money.h"
-#include <algorithm>
 #include <iostream>
 #include <ostream>
 
