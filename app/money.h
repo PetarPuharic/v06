@@ -5,7 +5,7 @@
 
 namespace vsite::oop::v7 {
     
-        class money {
+    class money {
     private:
         int total_cents;
     public:
