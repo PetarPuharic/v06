@@ -21,23 +21,18 @@ namespace vsite::oop::v7
 		euro = other.total_cents / 100;
 		cents = other.total_cents % 100;
 		if (cents == 0) {
-			os << euro << " eur";
+			os << std::format("{} eur", euro);
 			return os;
 		}
 		else if (euro == 0)
 		{
-
 			if (cents < 10)
-				os << "0" << cents << " ct";
-			else
-				os << cents << " ct";
+				os << std::format("0{} ct", cents);
 			return os;
 		}
 		else {
 			if (cents < 10)
-				os << euro << " eur, " << "0" << cents << " ct";
-			else
-				os << euro << " eur, " << cents << " ct";
+				os << std::format("{} eur, 0{} ct", euro, cents);
 			return os;
 		}
 	}
