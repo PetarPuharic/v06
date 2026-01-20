@@ -1,8 +1,6 @@
 	#include "money.h"
-	#include <iostream>
-	#include <ostream>
 	#include <format>
-
+	
 	namespace vsite::oop::v7
 	{
 		money& money::operator-=(const money& other) {
@@ -15,24 +13,19 @@
 			return *this;
 		}
 
-
 		std::ostream& operator << (std::ostream& os, const money& other) {
 			int euro; int cents;
 			euro = other.total_cents / 100;
 			cents = other.total_cents % 100;
-			if (cents == 0) {
-				os << std::format("{} eur", euro);
-				return os;
+			if (cents == 0) {	
+				return os << std::format("{} eur", euro);
 			}
 
-			if (euro == 0)
-			{
+			if (euro == 0) {
 				return os << std::format("{:02} ct", cents);
 			}
-
-			if (cents < 10) {
-				return os << std::format("{} eur, {:02} ct", euro, cents);
-			}
+			
+			return os << std::format("{} eur, {:02} ct", euro, cents);
 		}
 
 		std::istream& operator>>(std::istream& is, money& other) {
@@ -41,7 +34,6 @@
 			other.total_cents = euros * 100 + cents;
 			return is;
 		}
-
 
 		money::money(int euro, int cents) {
 			total_cents = euro * 100 + cents;

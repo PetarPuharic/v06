@@ -3,6 +3,7 @@
 #include <ostream>
 
 
+
 namespace vsite::oop::v7 {
     
     class money {

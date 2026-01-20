@@ -65,12 +65,12 @@ namespace UnitTest1
 		{
 			std::ostringstream oss;
 			money m1(0, 9);
-			money m2(0, 10);
+			money m2(0, 12);
 			oss << m1;
 			Assert::AreEqual("09 ct"s, oss.str());
 			oss.str("");
 			oss << m2;
-			Assert::AreEqual("10 ct"s, oss.str());
+			Assert::AreEqual("12 ct"s, oss.str());
 		}
 	};
 }
