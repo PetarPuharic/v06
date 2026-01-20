@@ -2,11 +2,7 @@
 #include "CppUnitTest.h"
 #include "../app/money.h"
 
-// Neznam u cemu je problem, normal run radi bez ovoga
-// Ali build neradi bez ovoga
-#include "../app/money.cpp"
-
-
+using std::string_literals::operator""s;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace vsite::oop::v7;
 
@@ -55,7 +51,24 @@ namespace UnitTest1
 			std::ostringstream oss;
 			money m1(3, 5);
 			oss << m1;
-			Assert::AreEqual(std::string("3 eur, 05 ct"), oss.str());
+			Assert::AreEqual("3 eur, 05 ct"s, oss.str());
+		}
+
+		TEST_METHOD(Output_NoCents)
+		{
+			std::ostringstream oss;
+			money m1(4, 0);
+			oss << m1;
+			Assert::AreEqual("4 eur"s, oss.str());
+		}
+
+		TEST_METHOD(Output_NoEuros)
+		{
+			std::ostringstream oss;
+			money m1(0, 9);
+			oss << m1;
+			Assert::AreEqual("09 ct"s, oss.str());
 		}
 	};
 }
+	
